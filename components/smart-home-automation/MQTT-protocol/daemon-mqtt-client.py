@@ -55,6 +55,7 @@ def on_connect(client, userdata, flags, rc):
         disk_total, disk_avail = disk_stats()
 
         # publish general server info
+        time.sleep(1)
         client.publish(mqttBaseTopic + "/state", payload="online", qos=1, retain=True)
         client.publish(mqttBaseTopic + "/version", payload=version, qos=1, retain=True)
         client.publish(mqttBaseTopic + "/edition", payload=edition, qos=1, retain=True)
